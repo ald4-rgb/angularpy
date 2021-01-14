@@ -1,0 +1,83 @@
+<div class="card bg-light">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <h4 class="card-title">
+            <a [routerLink]="['/clientes']" class="btn light btn-xs">&laquo; volver </a>
+      
+          </h4>
+     
+          <form #userForm="ngForm" >
+            <label for="nombre" class="col-form-label col-sm-2" >Nombre</label>
+
+            <div class="form-group  col-sm-6">
+                <input [(ngModel)]="usuario.nombre" type="text" class="form-control" 
+                name="nombre" id="nombre" placeholder="Ingrese datos personal su nombre " #nombre="ngModel" autofocus required>     
+                <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                  <div *ngIf="nombre.errors.required" >
+                      Por favor ingrese su nombre !...
+                  </div>
+                  <div *ngIf="nombre.errors.minlength" >
+                     El nombre debe tener almenos 4 caracteres!...
+                 </div>
+              </div>
+             </div>
+
+             <label for="nombre" class="col-form-label col-sm-2" >Apellido</label>
+
+             <div class="form-group  col-sm-6">
+                <input [(ngModel)]="usuario.apellido" type="text" class="form-control" 
+                name="apellido" id="apellido" placeholder="ingrese su apellido" #apellido="ngModel" #apellido="ngModel" autofocus required>     
+                <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                  <div *ngIf="apellido.errors.required" >
+                      Por favor ingrese su apellido !...
+                  </div>
+                 
+              </div>
+             </div>
+
+             <label for="nombre" class="col-form-label col-sm-2" >Correo</label>
+
+            <div class="form-group  col-sm-6">
+                <input [(ngModel)]="usuario.email" type="text" class="form-control" 
+                name="email" id="email" placeholder="Ingrese un email" #email="ngModel" autofocus required>     
+                <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                  <div *ngIf="apellido.errors.required" >
+                     Por favor ingrese su correo electronico ejemplo@gmail.com !...
+                  </div>
+             </div>
+            </div>
+
+
+            <label for="nombre" class="col-form-label col-sm-2" >Nombre de usuario</label>
+
+            <div class="form-group  col-sm-6">
+                <input [(ngModel)]="usuario.username" type="text" class="form-control" 
+                name="username" id="username" placeholder="nombre de usuario" #username="ngModel" autofocus required>     
+                <div class="alert alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+                  <div *ngIf="apellido.errors.required" >
+                      Por favor ingrese un nombre de usuario !...
+                  </div>
+             </div>
+             </div>
+
+             <label for="nombre" class="col-form-label col-sm-2" >Contraseña</label>
+             <div class="form-group  col-sm-6">
+                <input [(ngModel)]="usuario.password" type="password" class="form-control" 
+                name="password" id="password" placeholder="Contraseña" #password="ngModel" required>     
+                <div class="alert alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+                  <div *ngIf="password.errors.required" >
+                     porfavor ingrese una contraseña sin caractres especiales solo letras y numeros
+                  </div>
+             </div>  
+             </div>
+
+             <button class="btn btn-success" role="button" (click)="create()"  [disabled]="!userForm.form.valid">Registrar</button> 
+
+
+
+          </form>     
+
+
+
+    </div>
+</div>
